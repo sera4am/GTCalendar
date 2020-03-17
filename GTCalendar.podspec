@@ -44,7 +44,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source       = { :git => "https://sera4am/GTCalendar.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/sera4am/GTCalendar", :tag => "#{spec.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
