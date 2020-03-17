@@ -13,7 +13,7 @@ public protocol GTCalendarDataSource {
     func Calendar(_ calendar:GTCalendar, headerTitle date:Date) -> String?
     func Calendar(_ calendar:GTCalendar, isHoliday date:Date) -> String?
 }
-extension GTCalendarDataSource {
+public extension GTCalendarDataSource {
     func Calendar(_ calendar:GTCalendar, willDisplayCell cell: inout GTCalendar_CalendarViewCell, date:Date) {}
     func Calendar(_ calendar:GTCalendar, headerTitle date:Date) -> String? { return nil }
     func Calendar(_ calendar:GTCalendar, isHoliday date:Date) -> String? { return nil }
@@ -22,7 +22,7 @@ extension GTCalendarDataSource {
 public protocol GTCalendarDelegate {
     func Calendar(_ calendar:GTCalendar, didSelect date:Date, cell:GTCalendar_CalendarViewCell)
 }
-extension GTCalendarDelegate {
+public extension GTCalendarDelegate {
     func Calendar(_ calendar:GTCalendar, didSelect date:Date, cell:GTCalendar_CalendarViewCell) {}
 }
 

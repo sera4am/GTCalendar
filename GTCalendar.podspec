@@ -2,7 +2,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "GTCalendar"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "GTCalendar is a simple date selections calendar for iOS Swift 5 or later"
 
   # spec.description  = <<-DESC
