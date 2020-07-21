@@ -64,7 +64,6 @@ public class GTCalendar_JPHoliday: GTCalendar {
                 let dateName = line.components(separatedBy: ":")
                 if dateName.count == 2 {
                     if let date = Date(dateName[0], "yyyy'-'MM'-'dd") {
-                        print("[Holiday]", dateName)
                         self.holidayData[date.string("yyyy'-'MM'-'dd")] = dateName[1]
                     }
                 }
@@ -82,7 +81,6 @@ public class GTCalendar_JPHoliday: GTCalendar {
     
     override public func isHoliday(date: Date) -> String? {
         let nDate = date.string("yyyy-MM-dd")
-        print(nDate)
         if holidayData[nDate] != nil {
             return holidayData[nDate]
         }

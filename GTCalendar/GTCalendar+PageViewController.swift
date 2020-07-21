@@ -99,7 +99,6 @@ class GTCalendar_PageViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("viewDidAppear")
     }
     
     override func viewDidLayoutSubviews() {

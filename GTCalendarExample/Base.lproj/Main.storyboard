@@ -15,22 +15,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xc5-cG-mJt" customClass="GTCalendar_JPHoliday" customModule="GTCalendar">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Nwd-ex-csw">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgi-k5-hnu">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Y0T-TU-GtY"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Anv-Ga-El7" customClass="GTCalendar_JPHoliday" customModule="GTCalendar">
+                                        <rect key="frame" x="0.0" y="818" width="414" height="0.0"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xc5-cG-mJt" secondAttribute="trailing" id="LQT-7l-G5l"/>
-                            <constraint firstItem="xc5-cG-mJt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Pt7-jA-O8P"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xc5-cG-mJt" secondAttribute="bottom" id="TBA-MA-c9C"/>
-                            <constraint firstItem="xc5-cG-mJt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Zjs-tr-xmS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Nwd-ex-csw" secondAttribute="bottom" id="aq8-At-cTc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nwd-ex-csw" secondAttribute="trailing" id="gS9-gi-BWU"/>
+                            <constraint firstItem="Nwd-ex-csw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rCQ-Pp-Avb"/>
+                            <constraint firstItem="Nwd-ex-csw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vLV-Tp-Of3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="calendar" destination="xc5-cG-mJt" id="9th-Sb-Jhl"/>
+                        <outlet property="calendar" destination="Anv-Ga-El7" id="uPG-fP-ULj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

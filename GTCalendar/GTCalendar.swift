@@ -133,6 +133,10 @@ public class GTCalendar: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        pageViewController.delegate = self
+        pageViewController.dataSource = self
+        weekdayView.gtCalendar = self
+        pageControlView.gtCalendar = self
         initView()
     }
  
@@ -140,12 +144,16 @@ public class GTCalendar: UIView {
         super.init(coder: coder)
         pageViewController.delegate = self
         pageViewController.dataSource = self
+        weekdayView.gtCalendar = self
+        pageControlView.gtCalendar = self
+        pageViewController.delegate = self
+        pageViewController.dataSource = self
         initView()
     }
     
     private func initView() {
         self.backgroundColor = .white
-        
+
         self.addSubview(_stackView)
         self.addSubview(_baseStackView)
         _headerFrameView1.addSubview(weekdayView)
@@ -162,26 +170,23 @@ public class GTCalendar: UIView {
         pageControlView.translatesAutoresizingMaskIntoConstraints = false
         _headerFrameView1.translatesAutoresizingMaskIntoConstraints = false
         _containerFrameView.translatesAutoresizingMaskIntoConstraints = false
-        _headerFrameView1.backgroundColor = .clear
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        _headerFrameView1.backgroundColor = .clear
         _stackView.axis = .vertical
         _containerView.backgroundColor = .clear
-        pageViewController.delegate = self
-        pageViewController.dataSource = self
-        weekdayView.gtCalendar = self
-        pageControlView.gtCalendar = self
         _baseStackView.axis = .vertical
         _headerFrameView1.backgroundColor = .clear
         _stackView.isUserInteractionEnabled = false
 
 
         NSLayoutConstraint.activate([
-            _baseStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            self.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: _baseStackView.bottomAnchor),
+            _baseStackView.topAnchor.constraint(equalTo: self.topAnchor),
+            self.bottomAnchor.constraint(equalTo: _baseStackView.bottomAnchor),
             _baseStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.trailingAnchor.constraint(equalTo: _baseStackView.trailingAnchor),
             
-            _stackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            _stackView.topAnchor.constraint(equalTo: self.topAnchor),
             _stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.trailingAnchor.constraint(equalTo: _stackView.trailingAnchor),
             
@@ -231,6 +236,7 @@ public class GTCalendar: UIView {
         if selectionType == .Single && select {
             selectedDays = [date.dayStart()]
         }
+        
         if vc.view.tag > newVc.view.tag {
             pageViewController.setViewControllers([newVc], direction: .reverse, animated: animated, completion: nil)
         } else {
@@ -282,8 +288,7 @@ public class GTCalendar: UIView {
     }
     
     override public func draw(_ rect: CGRect) {
-        self.frame = rect
-        initView()
+//        initView()
     }
 }
 

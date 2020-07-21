@@ -87,6 +87,7 @@ class GTCalendar_WeekdayView: UIView {
             }
             
             var text = base[i]
+
             if gtCalendar.config.weekdayText.count > i {
                 text = gtCalendar.config.weekdayText[i]
             }
