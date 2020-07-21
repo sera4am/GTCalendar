@@ -2,8 +2,8 @@
 //  GTCalendar+PageViewController.swift
 //  pods_GTCalendar
 //
-//  Created by 風間剛男 on 2020/02/20.
-//  Copyright © 2020 風間剛男. All rights reserved.
+//  Created by Sera Naoto on 2020/02/20.
+//  Copyright © 2020 SHIJISHA. All rights reserved.
 //
 
 import UIKit
@@ -32,9 +32,8 @@ class GTCalendar_PageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         self.view.backgroundColor = .white
-        
         calendarLayout.itemSize = CGSize(width: 100, height: 100)
         calendarLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         calendarLayout.minimumInteritemSpacing = 0.0
@@ -46,83 +45,48 @@ class GTCalendar_PageViewController: UIViewController {
         calendarView.dataSource = self
         calendarView.register(GTCalendar_CalendarViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         calendarView.backgroundColor = .white
-        
-        _stackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        view.addSubview(_stackView)
-        view.addConstraints([
-            NSLayoutConstraint(item: _stackView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: _stackView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: _stackView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: _stackView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
         _stackView.axis = .vertical
         
-        headerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(_stackView)
         _stackView.addArrangedSubview(headerView)
-        headerView.addConstraint(NSLayoutConstraint(item: headerView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 60))
-
-        headerLabel.translatesAutoresizingMaskIntoConstraints = false
         headerView.addSubview(headerLabel)
-        headerView.addConstraints([
-            NSLayoutConstraint(item: headerLabel, attribute: .centerX, relatedBy: .equal, toItem: headerView, attribute: .centerX, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: headerLabel, attribute: .centerY, relatedBy: .equal, toItem: headerView, attribute: .centerY, multiplier: 1, constant: 0)
-        ])
-        /*
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
-        prevButton.translatesAutoresizingMaskIntoConstraints = false
-        currentButton.translatesAutoresizingMaskIntoConstraints = false
-        nextButton.titleLabel?.font = UIFont(name: "Arial", size: 12.0)
-        prevButton.titleLabel?.font = UIFont(name: "Arial", size: 12.0)
-        currentButton.titleLabel?.font = UIFont(name: "Arial", size: 12.0)
-        nextButton.setTitleColor(.link, for: .normal)
-        prevButton.setTitleColor(.link, for: .normal)
-        currentButton.setTitleColor(.link, for: .normal)
-        nextButton.setTitle("翌月", for: .normal)
-        prevButton.setTitle("前月", for: .normal)
-        currentButton.setTitle("当月", for: .normal)
-        
-        nextButton.addTarget(self, action: #selector(onMoveMonthButton(_:)), for: .touchUpInside)
-        prevButton.addTarget(self, action: #selector(onMoveMonthButton(_:)), for: .touchUpInside)
-        currentButton.addTarget(self, action: #selector(onMoveMonthButton(_:)), for: .touchUpInside)
-        
-        headerView.addSubview(nextButton)
-        headerView.addSubview(prevButton)
-        headerView.addSubview(currentButton)
-        headerView.addConstraints([
-            NSLayoutConstraint(item: headerView, attribute: .trailing, relatedBy: .equal, toItem: nextButton, attribute: .trailing, multiplier: 1, constant: 8),
-            NSLayoutConstraint(item: nextButton, attribute: .centerY, relatedBy: .equal, toItem: headerView, attribute: .centerY, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: prevButton, attribute: .leading, relatedBy: .equal, toItem: headerView, attribute: .leading, multiplier: 1, constant: 8),
-            NSLayoutConstraint(item: prevButton, attribute: .centerY, relatedBy: .equal, toItem: headerView, attribute: .centerY, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: nextButton, attribute: .leading, relatedBy: .equal, toItem: currentButton, attribute: .trailing, multiplier: 1, constant: 8),
-            NSLayoutConstraint(item: currentButton, attribute: .centerY, relatedBy: .equal, toItem: headerView, attribute: .centerY, multiplier: 1, constant: 0)
-        ])
-        */
-        
-        _view.translatesAutoresizingMaskIntoConstraints = false
         _stackView.addArrangedSubview(_view)
-        
-        _view.addConstraint(NSLayoutConstraint(item: _view, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: 40))
-        
         _stackView.addArrangedSubview(calendarFrameView)
-        
-        calendarView.layoutIfNeeded()
-        
-        calendarView.translatesAutoresizingMaskIntoConstraints = false
         calendarFrameView.addSubview(calendarView)
-        calendarWidthConstraint = NSLayoutConstraint(item: calendarView!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: self.view.frame.size.width)
-        calendarHeightConstraint = NSLayoutConstraint(item: calendarView!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant:self.view.frame.size.height)
+
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        _stackView.translatesAutoresizingMaskIntoConstraints = false
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        _view.translatesAutoresizingMaskIntoConstraints = false
+        calendarFrameView.translatesAutoresizingMaskIntoConstraints = false
+        calendarView.translatesAutoresizingMaskIntoConstraints = false
         
+        NSLayoutConstraint.activate([
+            _stackView.topAnchor.constraint(equalTo: view.topAnchor),
+            view.bottomAnchor.constraint(equalTo: _stackView.bottomAnchor),
+            _stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: _stackView.trailingAnchor),
+            
+            headerView.heightAnchor.constraint(equalToConstant: 60),
+            
+            headerLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
+            headerLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+            
+            _view.heightAnchor.constraint(equalToConstant: 40),
+        ])
+        
+//        calendarView.layoutIfNeeded()
+        calendarWidthConstraint = calendarView.widthAnchor.constraint(equalToConstant: self.view.frame.size.width)
+        calendarHeightConstraint = calendarView.heightAnchor.constraint(equalToConstant: self.view.frame.size.height)
         updateCellSize()
         
-        calendarView.addConstraints([calendarWidthConstraint, calendarHeightConstraint])
-        calendarFrameView.addConstraints([
-            NSLayoutConstraint(item: calendarView!, attribute: .centerX, relatedBy: .equal, toItem: calendarFrameView, attribute: .centerX, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: calendarView!, attribute: .centerY, relatedBy: .equal, toItem: calendarFrameView, attribute: .centerY, multiplier: 1, constant: 0)
+        NSLayoutConstraint.activate([
+            calendarWidthConstraint, calendarHeightConstraint,
+            calendarView.centerXAnchor.constraint(equalTo: calendarFrameView.centerXAnchor),
+            calendarView.centerYAnchor.constraint(equalTo: calendarFrameView.centerYAnchor),
         ])
         
-        calendarView.layoutSubviews()
+//        calendarView.layoutSubviews()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateOrientation(_:)), name: UIDevice.orientationDidChangeNotification, object: nil)
 
@@ -179,36 +143,36 @@ class GTCalendar_PageViewController: UIViewController {
     }
 
     func getCellTextColor(_ date:Date) -> UIColor {
-        var color:UIColor = gtCalendar.activeTextColor
+        var color:UIColor = gtCalendar.config.activeTextColor
         if date.yearMonth() == pageDate.yearMonth() {
-            if date.dayOfWeek() == 1 && gtCalendar.sundayTextColor != nil {
-                color = gtCalendar.sundayTextColor!
-            } else if date.dayOfWeek() == 7 && gtCalendar.saturdayTextColor != nil {
-                color = gtCalendar.saturdayTextColor!
+            if date.dayOfWeek() == 1 && gtCalendar.config.sundayTextColor != nil {
+                color = gtCalendar.config.sundayTextColor!
+            } else if date.dayOfWeek() == 7 && gtCalendar.config.saturdayTextColor != nil {
+                color = gtCalendar.config.saturdayTextColor!
             }
         } else {
-            color = gtCalendar.nativeTextColor
-            if date.dayOfWeek() == 1 && (gtCalendar.saturdayTextColor != nil || gtCalendar.saturdayNativeTextColor != nil) {
-                color = (gtCalendar.sundayNativeTextColor ?? gtCalendar.sundayTextColor)!
-            } else if date.dayOfWeek() == 7 && (gtCalendar.sundayTextColor != nil || gtCalendar.sundayNativeTextColor != nil) {
-                color = (gtCalendar.saturdayNativeTextColor ?? gtCalendar.saturdayTextColor)!
+            color = gtCalendar.config.nativeTextColor
+            if date.dayOfWeek() == 1 && (gtCalendar.config.saturdayTextColor != nil || gtCalendar.config.saturdayNativeTextColor != nil) {
+                color = (gtCalendar.config.sundayNativeTextColor ?? gtCalendar.config.sundayTextColor)!
+            } else if date.dayOfWeek() == 7 && (gtCalendar.config.sundayTextColor != nil || gtCalendar.config.sundayNativeTextColor != nil) {
+                color = (gtCalendar.config.saturdayNativeTextColor ?? gtCalendar.config.saturdayTextColor)!
             }
         }
         return color
     }
     
     func getCellTextFont(_ date:Date) -> UIFont {
-        var font = gtCalendar.activeFont
+        var font = gtCalendar.config.activeFont
         if date.yearMonth() != pageDate.yearMonth() {
-            font = gtCalendar.nativeFont
+            font = gtCalendar.config.nativeFont
         }
         return font
     }
     
     func getCellSubTextFont(_ date:Date) -> UIFont {
-        var font = gtCalendar.activeSubLabelFont
+        var font = gtCalendar.config.activeSubLabelFont
         if date.yearMonth() != pageDate.yearMonth() {
-            font = gtCalendar.nativeSubLabelFont
+            font = gtCalendar.config.nativeSubLabelFont
         }
         return font
     }
@@ -216,11 +180,11 @@ class GTCalendar_PageViewController: UIViewController {
     func getSelectCircleColor(_ date:Date) -> UIColor? {
         
         var color:UIColor = .activeSelectCircleColor
-        if gtCalendar.activeSelectCircleColor != nil {
-            color = gtCalendar.activeSelectCircleColor!
+        if gtCalendar.config.activeSelectCircleColor != nil {
+            color = gtCalendar.config.activeSelectCircleColor!
         }
-        if date.yearMonth() != pageDate.yearMonth() && gtCalendar.nativeSelectCircleColor != nil {
-            color = gtCalendar.nativeSelectCircleColor!
+        if date.yearMonth() != pageDate.yearMonth() && gtCalendar.config.nativeSelectCircleColor != nil {
+            color = gtCalendar.config.nativeSelectCircleColor!
         }
         
         switch gtCalendar.selectionType {
@@ -248,9 +212,9 @@ class GTCalendar_PageViewController: UIViewController {
         periodColor[.Start] = .backgroundClearColor
         periodColor[.End] = .backgroundClearColor
 
-        var color = gtCalendar.activeSelectCircleColor
-        if date.yearMonth() != pageDate.yearMonth() && gtCalendar.nativeSelectCircleColor != nil {
-            color = gtCalendar.nativeSelectCircleColor
+        var color = gtCalendar.config.activeSelectCircleColor
+        if date.yearMonth() != pageDate.yearMonth() && gtCalendar.config.nativeSelectCircleColor != nil {
+            color = gtCalendar.config.nativeSelectCircleColor
         }
         
         if gtCalendar.selectionType == .Period && (gtCalendar.startDate != nil || gtCalendar.endDate != nil) {
@@ -306,13 +270,12 @@ extension GTCalendar_PageViewController : UICollectionViewDataSource {
         
         if let holiday = gtCalendar.isHoliday(date: date) {
             cell.subLabel.text = holiday
-            cell.label.textColor = gtCalendar.sundayTextColor
-            cell.subLabel.textColor = gtCalendar.sundayTextColor
+            cell.label.textColor = gtCalendar.config.sundayTextColor
+            cell.subLabel.textColor = gtCalendar.config.sundayTextColor
         }
         
         cell.label.text = String(date.day())
         cell.selectCircle.backgroundColor = getSelectCircleColor(date)
-//        cell.selectCircle.isHidden = !gtCalendar.selectedDays.contains(date)
         cell.backgroundColor = .white
         let periodColor = getSelectPeriodColor(date)
         cell.selectPeriodStart.backgroundColor = periodColor[.Start]
@@ -351,6 +314,9 @@ extension GTCalendar_PageViewController : UICollectionViewDelegate {
                     gtCalendar.startDate = gtCalendar.endDate
                 } else {
                     gtCalendar.startDate = cell.date
+                }
+                if gtCalendar.config.periodSelectionAuto {
+                    gtCalendar.periodSelectionTarget = .End
                 }
             } else if gtCalendar.periodSelectionTarget == .End {
                 if gtCalendar.startDate != nil && gtCalendar.startDate! >= cell.date! {

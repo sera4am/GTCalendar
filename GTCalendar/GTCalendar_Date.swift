@@ -2,7 +2,7 @@
 //  GTCalendar_Date.swift
 //  pods_GTCalendar
 //
-//  Created by 世来直人 on 2020/02/20.
+//  Created by Sera Naoto on 2020/02/20.
 //  Copyright © 2020 SHIJISHA. All rights reserved.
 //
 

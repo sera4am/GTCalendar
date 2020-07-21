@@ -2,8 +2,8 @@
 //  GTCalendar+WeekdayView.swift
 //  pods_GTCalendar
 //
-//  Created by 風間剛男 on 2020/03/16.
-//  Copyright © 2020 風間剛男. All rights reserved.
+//  Created by Sera Naoto on 2020/03/16.
+//  Copyright © 2020 SHIJISHA. All rights reserved.
 //
 
 import UIKit
@@ -28,33 +28,35 @@ class GTCalendar_WeekdayView: UIView {
 
     
     func initView() {
-        
-        _stackView.translatesAutoresizingMaskIntoConstraints = false
-        _stackView.axis = .horizontal
-        _stackView.distribution = .fillEqually
-        self.addSubview(_stackView)
-        self.addConstraints([
-            NSLayoutConstraint(item: _stackView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: _stackView, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: _stackView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: _stackView, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
-        
         for view in _stackView.arrangedSubviews {
             _stackView.removeArrangedSubview(view)
         }
+
+        self.addSubview(_stackView)
+
+        _stackView.translatesAutoresizingMaskIntoConstraints = false
         
+        _stackView.axis = .horizontal
+        _stackView.distribution = .fillEqually
+        
+        NSLayoutConstraint.activate([
+            _stackView.topAnchor.constraint(equalTo: self.topAnchor),
+            self.bottomAnchor.constraint(equalTo: _stackView.bottomAnchor),
+            _stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.trailingAnchor.constraint(equalTo: _stackView.trailingAnchor),
+        ])
+         
         for i in 0..<7 {
-            print("[WeekdayStack]", i)
-            let view = UIView()
+             let view = UIView()
             let label = UILabel()
             _stackView.addArrangedSubview(view)
-            view.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(label)
+            view.translatesAutoresizingMaskIntoConstraints = false
             label.translatesAutoresizingMaskIntoConstraints = false
-            view.addConstraints([
-                NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0),
-                NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
+            
+            NSLayoutConstraint.activate([
+                label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             ])
             view.backgroundColor = .white
             
@@ -74,19 +76,19 @@ class GTCalendar_WeekdayView: UIView {
         
         for i in 0..<7 {
             
-            _labels[i]?.textColor = gtCalendar.weekDayTextColor
-            _labels[i]?.text = gtCalendar.weekDayText[i]
-            _labels[i]?.font = gtCalendar.weekDayFont
+            _labels[i]?.textColor = gtCalendar.config.weekdayTextColor
+            _labels[i]?.text = gtCalendar.config.weekdayText[i]
+            _labels[i]?.font = gtCalendar.config.weekdayFont
             
             if i == 0 {
-                _labels[i]?.textColor = gtCalendar.weekDaySundayTextColor
+                _labels[i]?.textColor = gtCalendar.config.weekdaySundayTextColor
             } else if i == 6 {
-                _labels[i]?.textColor = gtCalendar.weekDaySaturdayTextColor
+                _labels[i]?.textColor = gtCalendar.config.weekdaySaturdayTextColor
             }
             
             var text = base[i]
-            if gtCalendar.weekDayText.count > i {
-                text = gtCalendar.weekDayText[i]
+            if gtCalendar.config.weekdayText.count > i {
+                text = gtCalendar.config.weekdayText[i]
             }
             _labels[i]?.text = text
         }

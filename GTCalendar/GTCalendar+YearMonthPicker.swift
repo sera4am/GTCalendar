@@ -2,8 +2,8 @@
 //  GTCalendar+YearMonthPicker.swift
 //  pods_GTCalendar
 //
-//  Created by 風間剛男 on 2020/03/16.
-//  Copyright © 2020 風間剛男. All rights reserved.
+//  Created by Sera Naoto on 2020/03/16.
+//  Copyright © 2020 SHIJISHA. All rights reserved.
 //
 
 import UIKit

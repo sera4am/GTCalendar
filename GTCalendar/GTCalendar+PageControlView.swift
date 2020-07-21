@@ -2,8 +2,8 @@
 //  GTCalendar+PageControlView.swift
 //  pods_GTCalendar
 //
-//  Created by 風間剛男 on 2020/03/16.
-//  Copyright © 2020 風間剛男. All rights reserved.
+//  Created by Sera Naoto on 2020/03/16.
+//  Copyright © 2020 SHIJISHA. All rights reserved.
 //
 
 import UIKit
@@ -56,23 +56,41 @@ public class GTCalendar_PageControlView: UIView {
     }
 
     func initView() {
+        self.addSubview(gradientStackView)
+        self.sendSubviewToBack(gradientStackView)
+        gradientStackView.addArrangedSubview(gradientLeftView)
+        gradientStackView.addArrangedSubview(gradientMiddleView)
+        gradientStackView.addArrangedSubview(gradientRightView)
+        self.addSubview(stackView)
+        stackView.addArrangedSubview(prevView)
+        stackView.addArrangedSubview(yearMonthPickerView)
+        stackView.addArrangedSubview(currentView)
+        stackView.addArrangedSubview(nextView)
+        yearMonthPickerView.addSubview(yearMonthPickerButton)
         
         gradientStackView.translatesAutoresizingMaskIntoConstraints = false
         gradientLeftView.translatesAutoresizingMaskIntoConstraints = false
         gradientMiddleView.translatesAutoresizingMaskIntoConstraints = false
         gradientRightView.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(gradientStackView)
-        self.addConstraints([
-            NSLayoutConstraint(item: gradientStackView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: gradientStackView, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: gradientStackView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: gradientStackView, attribute: .trailing, multiplier: 1, constant: 0)
-        ])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        nextView.translatesAutoresizingMaskIntoConstraints = false
+        prevView.translatesAutoresizingMaskIntoConstraints = false
+        currentView.translatesAutoresizingMaskIntoConstraints = false
+        yearMonthPickerView.translatesAutoresizingMaskIntoConstraints = false
+        nextLabel.translatesAutoresizingMaskIntoConstraints = false
+        prevLabel.translatesAutoresizingMaskIntoConstraints = false
+        currentLabel.translatesAutoresizingMaskIntoConstraints = false
+        nextImage.translatesAutoresizingMaskIntoConstraints = false
+        prevImage.translatesAutoresizingMaskIntoConstraints = false
+        currentImage.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        prevButton.translatesAutoresizingMaskIntoConstraints = false
+        currentButton.translatesAutoresizingMaskIntoConstraints = false
+        yearMonthPickerButton.translatesAutoresizingMaskIntoConstraints = false
+
         gradientStackView.axis = .horizontal
         gradientStackView.distribution = .fillEqually
-        gradientStackView.addArrangedSubview(gradientLeftView)
-        gradientStackView.addArrangedSubview(gradientMiddleView)
-        gradientStackView.addArrangedSubview(gradientRightView)
+
         
         let gradientLeftLayer = CAGradientLayer()
         gradientLeftLayer.frame = CGRect(x: 0, y: 0, width: self.frame.size.width / 3, height: 60)
@@ -94,63 +112,39 @@ public class GTCalendar_PageControlView: UIView {
         gradientRightLayer.endPoint = CGPoint(x: 0, y: 0.5)
         gradientRightView.layer.insertSublayer(gradientRightLayer, at: 0)
         
-        self.sendSubviewToBack(gradientStackView)
-        
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        nextView.translatesAutoresizingMaskIntoConstraints = false
-        prevView.translatesAutoresizingMaskIntoConstraints = false
-        currentView.translatesAutoresizingMaskIntoConstraints = false
-        yearMonthPickerView.translatesAutoresizingMaskIntoConstraints = false
-        nextLabel.translatesAutoresizingMaskIntoConstraints = false
-        prevLabel.translatesAutoresizingMaskIntoConstraints = false
-        currentLabel.translatesAutoresizingMaskIntoConstraints = false
-        nextImage.translatesAutoresizingMaskIntoConstraints = false
-        prevImage.translatesAutoresizingMaskIntoConstraints = false
-        currentImage.translatesAutoresizingMaskIntoConstraints = false
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
-        prevButton.translatesAutoresizingMaskIntoConstraints = false
-        currentButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.addSubview(stackView)
-        self.addConstraints([
-            NSLayoutConstraint(item: stackView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: stackView, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: stackView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 8),
-            NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: stackView, attribute: .trailing, multiplier: 1, constant: 8)
-        ])
-        
         self.backgroundColor = .clear
         stackView.axis = .horizontal
-//        stackView.distribution = .fill
         stackView.spacing = 8
-        stackView.addArrangedSubview(prevView)
-        stackView.addArrangedSubview(yearMonthPickerView)
-        stackView.addArrangedSubview(currentView)
-        stackView.addArrangedSubview(nextView)
-        
         prevView.backgroundColor = .clear
         yearMonthPickerView.backgroundColor = .clear
         currentView.backgroundColor = .clear
         nextView.backgroundColor = .clear
-        
         prevButton.backgroundColor = .backgroundClearColor
         nextButton.backgroundColor = .backgroundClearColor
         currentButton.backgroundColor = .backgroundClearColor
-        
         prevButton.addTarget(self, action: #selector(onMonthMoveButton(_:)), for: .touchUpInside)
         nextButton.addTarget(self, action: #selector(onMonthMoveButton(_:)), for: .touchUpInside)
         currentButton.addTarget(self, action: #selector(onMonthMoveButton(_:)), for: .touchUpInside)
-        
-        yearMonthPickerButton.translatesAutoresizingMaskIntoConstraints = false
-        yearMonthPickerView.addSubview(yearMonthPickerButton)
-        yearMonthPickerView.addConstraints([
-            NSLayoutConstraint(item: yearMonthPickerButton, attribute: .top, relatedBy: .equal, toItem: yearMonthPickerView, attribute: .top, multiplier: 1, constant: 8),
-            NSLayoutConstraint(item: yearMonthPickerView, attribute: .bottom, relatedBy: .equal, toItem: yearMonthPickerButton, attribute: .bottom, multiplier: 1, constant: 8),
-            NSLayoutConstraint(item: yearMonthPickerButton, attribute: .leading, relatedBy: .equal, toItem: yearMonthPickerView, attribute: .leading, multiplier: 1, constant: 8),
-            NSLayoutConstraint(item: yearMonthPickerView, attribute: .trailing, relatedBy: .equal, toItem: yearMonthPickerButton, attribute: .trailing, multiplier: 1, constant: 8)
-        ])
         yearMonthPickerButton.backgroundColor = .backgroundClearColor
         yearMonthPickerButton.addTarget(self, action: #selector(onMonthMoveButton(_:)), for: .touchUpInside)
+
+        NSLayoutConstraint.activate([
+            gradientStackView.topAnchor.constraint(equalTo: self.topAnchor),
+            self.bottomAnchor.constraint(equalTo: gradientStackView.bottomAnchor),
+            gradientStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.trailingAnchor.constraint(equalTo: gradientStackView.trailingAnchor),
+            
+            stackView.topAnchor.constraint(equalTo: self.topAnchor),
+            self.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
+            self.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: 8),
+            
+            yearMonthPickerButton.topAnchor.constraint(equalTo: yearMonthPickerView.topAnchor, constant: 8),
+            yearMonthPickerView.bottomAnchor.constraint(equalTo: yearMonthPickerButton.bottomAnchor, constant: 8),
+            yearMonthPickerButton.leadingAnchor.constraint(equalTo: yearMonthPickerView.leadingAnchor, constant: 8),
+            yearMonthPickerView.trailingAnchor.constraint(equalTo: yearMonthPickerButton.trailingAnchor, constant: 8),
+        ])
+        
         reloadData()
     }
     
@@ -185,9 +179,9 @@ public class GTCalendar_PageControlView: UIView {
         currentView.addSubview(currentImage)
         currentView.addSubview(currentButton)
         
-        setConstraintMonth(view: prevView, label: prevLabel, button: prevButton, imageView: prevImage, image: gtCalendar.prevMonthButtonImage, text: gtCalendar.prevMonthButtonTitle, titleColor: gtCalendar.monthButtonTitleColor)
-        setConstraintMonth(view: nextView, label: nextLabel, button: nextButton, imageView: nextImage, image: gtCalendar.nextMonthButtonImage, text: gtCalendar.nextMonthButtonTitle, titleColor: gtCalendar.monthButtonTitleColor)
-        setConstraintMonth(view: currentView, label: currentLabel, button: currentButton, imageView: currentImage, image: gtCalendar.currentMonthButtonImage, text: gtCalendar.currentMonthButtonTitle, titleColor: gtCalendar.monthButtonTitleColor)
+        setConstraintMonth(view: prevView, label: prevLabel, button: prevButton, imageView: prevImage, image: gtCalendar.config.prevMonthButtonImage, text: gtCalendar.config.prevMonthButtonTitle, titleColor: gtCalendar.config.monthButtonTitleColor)
+        setConstraintMonth(view: nextView, label: nextLabel, button: nextButton, imageView: nextImage, image: gtCalendar.config.nextMonthButtonImage, text: gtCalendar.config.nextMonthButtonTitle, titleColor: gtCalendar.config.monthButtonTitleColor)
+        setConstraintMonth(view: currentView, label: currentLabel, button: currentButton, imageView: currentImage, image: gtCalendar.config.currentMonthButtonImage, text: gtCalendar.config.currentMonthButtonTitle, titleColor: gtCalendar.config.monthButtonTitleColor)
         
     }
     
@@ -212,44 +206,42 @@ public class GTCalendar_PageControlView: UIView {
     func setConstraintMonth(view:UIView, label:UILabel, button:UIButton, imageView:UIImageView, image:UIImage?, text:String?, titleColor:UIColor?) {
         label.text = text
         label.textColor = titleColor
-        label.font = gtCalendar.monthButtonTitleFont
+        label.font = gtCalendar.config.monthButtonTitleFont
         view.addSubview(label)
         
         if text != nil {
             let size = label.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: label.font.lineHeight))
-            view.addConstraint(NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: size.width + 16))
+            view.widthAnchor.constraint(equalToConstant: size.width + 16).isActive = true
         } else {
-            view.addConstraint(NSLayoutConstraint(item: view, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: imageSize + 16))
+            view.widthAnchor.constraint(equalToConstant: imageSize + 16).isActive = true
         }
         
         if image != nil {
             view.addSubview(imageView)
             imageView.image = image
             imageView.tintColor = titleColor
-            imageView.addConstraints([
-                NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1, constant: imageSize),
-                NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1, constant: imageSize)
-            ])
-            view.addConstraints([
-                NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0),
-                NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0)
+            NSLayoutConstraint.activate([
+                imageView.widthAnchor.constraint(equalToConstant: imageSize),
+                imageView.heightAnchor.constraint(equalToConstant: imageSize),
+                
+                imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             ])
             if text != nil {
-                view.addConstraints([
-                NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0),
-                NSLayoutConstraint(item: label, attribute: .top, relatedBy: .equal, toItem: imageView, attribute: .bottom, multiplier: 1, constant: 4)
+                NSLayoutConstraint.activate([
+                    label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                    label.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 4),
                 ])
             }
         } else {
-            view.addConstraint(NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: 0))
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         }
         
-        view.addConstraints([
-            NSLayoutConstraint(item: button, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: button, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: button, attribute: .leading, relatedBy: .equal, toItem: view
-                , attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view, attribute: .trailing, relatedBy: .equal, toItem: button, attribute: .trailing, multiplier: 1, constant: 0)
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: view.topAnchor),
+            view.bottomAnchor.constraint(equalTo: button.bottomAnchor),
+            button.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            view.trailingAnchor.constraint(equalTo: button.trailingAnchor),
         ])
         
         view.bringSubviewToFront(button)

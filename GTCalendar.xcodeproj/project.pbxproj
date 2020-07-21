@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D808B23B24C53B4D00EB55DB /* GTCalendarConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D808B23A24C53B4D00EB55DB /* GTCalendarConfig.swift */; };
 		D85D11522420AF2D00BEDBE1 /* GTCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D85D11482420AF2D00BEDBE1 /* GTCalendar.framework */; };
 		D85D11572420AF2D00BEDBE1 /* GTCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85D11562420AF2D00BEDBE1 /* GTCalendarTests.swift */; };
 		D85D11592420AF2D00BEDBE1 /* GTCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = D85D114B2420AF2D00BEDBE1 /* GTCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -18,10 +19,17 @@
 		D85D11732420AF7200BEDBE1 /* GTCalendar+JPHoliday.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85D11672420AF7100BEDBE1 /* GTCalendar+JPHoliday.swift */; };
 		D85D11742420AF7200BEDBE1 /* GTCalendar+PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85D11682420AF7200BEDBE1 /* GTCalendar+PageControlView.swift */; };
 		D85D11752420AF7200BEDBE1 /* GTCalendar+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85D11692420AF7200BEDBE1 /* GTCalendar+Color.swift */; };
-		D85D11762420AF7200BEDBE1 /* GTCalendar+PeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85D116A2420AF7200BEDBE1 /* GTCalendar+PeriodView.swift */; };
 		D85D11772420AF7200BEDBE1 /* GTCalendar+WeekdayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85D116B2420AF7200BEDBE1 /* GTCalendar+WeekdayView.swift */; };
 		D85D11782420AF7200BEDBE1 /* GTCalendar+YearMonthPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85D116C2420AF7200BEDBE1 /* GTCalendar+YearMonthPicker.swift */; };
 		D85D11792420AF7200BEDBE1 /* GTCalendar+CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85D116D2420AF7200BEDBE1 /* GTCalendar+CalendarViewCell.swift */; };
+		D8CBAE3924668BE3008E8A66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CBAE3824668BE3008E8A66 /* AppDelegate.swift */; };
+		D8CBAE3B24668BE3008E8A66 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CBAE3A24668BE3008E8A66 /* SceneDelegate.swift */; };
+		D8CBAE3D24668BE3008E8A66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CBAE3C24668BE3008E8A66 /* ViewController.swift */; };
+		D8CBAE4024668BE3008E8A66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CBAE3E24668BE3008E8A66 /* Main.storyboard */; };
+		D8CBAE4224668BE5008E8A66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8CBAE4124668BE5008E8A66 /* Assets.xcassets */; };
+		D8CBAE4524668BE5008E8A66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8CBAE4324668BE5008E8A66 /* LaunchScreen.storyboard */; };
+		D8CBAE4B24668BF1008E8A66 /* GTCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D85D11482420AF2D00BEDBE1 /* GTCalendar.framework */; };
+		D8CBAE4C24668BF1008E8A66 /* GTCalendar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D85D11482420AF2D00BEDBE1 /* GTCalendar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,9 +40,31 @@
 			remoteGlobalIDString = D85D11472420AF2D00BEDBE1;
 			remoteInfo = GTCalendar;
 		};
+		D8CBAE4D24668BF1008E8A66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D85D113F2420AF2D00BEDBE1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D85D11472420AF2D00BEDBE1;
+			remoteInfo = GTCalendar;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D8CBAE4F24668BF1008E8A66 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D8CBAE4C24668BF1008E8A66 /* GTCalendar.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		D808B23A24C53B4D00EB55DB /* GTCalendarConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GTCalendarConfig.swift; sourceTree = "<group>"; };
 		D85D11482420AF2D00BEDBE1 /* GTCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GTCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D85D114B2420AF2D00BEDBE1 /* GTCalendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GTCalendar.h; sourceTree = "<group>"; };
 		D85D114C2420AF2D00BEDBE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,10 +79,17 @@
 		D85D11672420AF7100BEDBE1 /* GTCalendar+JPHoliday.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTCalendar+JPHoliday.swift"; sourceTree = "<group>"; };
 		D85D11682420AF7200BEDBE1 /* GTCalendar+PageControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTCalendar+PageControlView.swift"; sourceTree = "<group>"; };
 		D85D11692420AF7200BEDBE1 /* GTCalendar+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTCalendar+Color.swift"; sourceTree = "<group>"; };
-		D85D116A2420AF7200BEDBE1 /* GTCalendar+PeriodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTCalendar+PeriodView.swift"; sourceTree = "<group>"; };
 		D85D116B2420AF7200BEDBE1 /* GTCalendar+WeekdayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTCalendar+WeekdayView.swift"; sourceTree = "<group>"; };
 		D85D116C2420AF7200BEDBE1 /* GTCalendar+YearMonthPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTCalendar+YearMonthPicker.swift"; sourceTree = "<group>"; };
 		D85D116D2420AF7200BEDBE1 /* GTCalendar+CalendarViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GTCalendar+CalendarViewCell.swift"; sourceTree = "<group>"; };
+		D8CBAE3624668BE3008E8A66 /* GTCalendarExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTCalendarExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8CBAE3824668BE3008E8A66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D8CBAE3A24668BE3008E8A66 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D8CBAE3C24668BE3008E8A66 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D8CBAE3F24668BE3008E8A66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D8CBAE4124668BE5008E8A66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D8CBAE4424668BE5008E8A66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D8CBAE4624668BE5008E8A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +108,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8CBAE3324668BE3008E8A66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8CBAE4B24668BF1008E8A66 /* GTCalendar.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -79,7 +124,9 @@
 			children = (
 				D85D114A2420AF2D00BEDBE1 /* GTCalendar */,
 				D85D11552420AF2D00BEDBE1 /* GTCalendarTests */,
+				D8CBAE3724668BE3008E8A66 /* GTCalendarExample */,
 				D85D11492420AF2D00BEDBE1 /* Products */,
+				D8CBAE4A24668BF1008E8A66 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +135,7 @@
 			children = (
 				D85D11482420AF2D00BEDBE1 /* GTCalendar.framework */,
 				D85D11512420AF2D00BEDBE1 /* GTCalendarTests.xctest */,
+				D8CBAE3624668BE3008E8A66 /* GTCalendarExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -102,13 +150,13 @@
 				D85D116D2420AF7200BEDBE1 /* GTCalendar+CalendarViewCell.swift */,
 				D85D11682420AF7200BEDBE1 /* GTCalendar+PageControlView.swift */,
 				D85D11632420AF7100BEDBE1 /* GTCalendar+PageViewController.swift */,
-				D85D116A2420AF7200BEDBE1 /* GTCalendar+PeriodView.swift */,
 				D85D11652420AF7100BEDBE1 /* GTCalendar+String.swift */,
 				D85D116B2420AF7200BEDBE1 /* GTCalendar+WeekdayView.swift */,
 				D85D116C2420AF7200BEDBE1 /* GTCalendar+YearMonthPicker.swift */,
 				D85D11672420AF7100BEDBE1 /* GTCalendar+JPHoliday.swift */,
 				D85D114B2420AF2D00BEDBE1 /* GTCalendar.h */,
 				D85D114C2420AF2D00BEDBE1 /* Info.plist */,
+				D808B23A24C53B4D00EB55DB /* GTCalendarConfig.swift */,
 			);
 			path = GTCalendar;
 			sourceTree = "<group>";
@@ -120,6 +168,27 @@
 				D85D11582420AF2D00BEDBE1 /* Info.plist */,
 			);
 			path = GTCalendarTests;
+			sourceTree = "<group>";
+		};
+		D8CBAE3724668BE3008E8A66 /* GTCalendarExample */ = {
+			isa = PBXGroup;
+			children = (
+				D8CBAE3824668BE3008E8A66 /* AppDelegate.swift */,
+				D8CBAE3A24668BE3008E8A66 /* SceneDelegate.swift */,
+				D8CBAE3C24668BE3008E8A66 /* ViewController.swift */,
+				D8CBAE3E24668BE3008E8A66 /* Main.storyboard */,
+				D8CBAE4124668BE5008E8A66 /* Assets.xcassets */,
+				D8CBAE4324668BE5008E8A66 /* LaunchScreen.storyboard */,
+				D8CBAE4624668BE5008E8A66 /* Info.plist */,
+			);
+			path = GTCalendarExample;
+			sourceTree = "<group>";
+		};
+		D8CBAE4A24668BF1008E8A66 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,13 +241,32 @@
 			productReference = D85D11512420AF2D00BEDBE1 /* GTCalendarTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D8CBAE3524668BE3008E8A66 /* GTCalendarExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8CBAE4924668BE5008E8A66 /* Build configuration list for PBXNativeTarget "GTCalendarExample" */;
+			buildPhases = (
+				D8CBAE3224668BE3008E8A66 /* Sources */,
+				D8CBAE3324668BE3008E8A66 /* Frameworks */,
+				D8CBAE3424668BE3008E8A66 /* Resources */,
+				D8CBAE4F24668BF1008E8A66 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8CBAE4E24668BF1008E8A66 /* PBXTargetDependency */,
+			);
+			name = GTCalendarExample;
+			productName = GTCalendarExample;
+			productReference = D8CBAE3624668BE3008E8A66 /* GTCalendarExample.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D85D113F2420AF2D00BEDBE1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "世来直人";
 				TargetAttributes = {
@@ -188,6 +276,9 @@
 					};
 					D85D11502420AF2D00BEDBE1 = {
 						CreatedOnToolsVersion = 11.3.1;
+					};
+					D8CBAE3524668BE3008E8A66 = {
+						CreatedOnToolsVersion = 11.4.1;
 					};
 				};
 			};
@@ -206,6 +297,7 @@
 			targets = (
 				D85D11472420AF2D00BEDBE1 /* GTCalendar */,
 				D85D11502420AF2D00BEDBE1 /* GTCalendarTests */,
+				D8CBAE3524668BE3008E8A66 /* GTCalendarExample */,
 			);
 		};
 /* End PBXProject section */
@@ -225,6 +317,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8CBAE3424668BE3008E8A66 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8CBAE4524668BE5008E8A66 /* LaunchScreen.storyboard in Resources */,
+				D8CBAE4224668BE5008E8A66 /* Assets.xcassets in Resources */,
+				D8CBAE4024668BE3008E8A66 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -232,8 +334,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D85D11762420AF7200BEDBE1 /* GTCalendar+PeriodView.swift in Sources */,
 				D85D11752420AF7200BEDBE1 /* GTCalendar+Color.swift in Sources */,
+				D808B23B24C53B4D00EB55DB /* GTCalendarConfig.swift in Sources */,
 				D85D116F2420AF7200BEDBE1 /* GTCalendar+PageViewController.swift in Sources */,
 				D85D11732420AF7200BEDBE1 /* GTCalendar+JPHoliday.swift in Sources */,
 				D85D11742420AF7200BEDBE1 /* GTCalendar+PageControlView.swift in Sources */,
@@ -255,6 +357,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D8CBAE3224668BE3008E8A66 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8CBAE3D24668BE3008E8A66 /* ViewController.swift in Sources */,
+				D8CBAE3924668BE3008E8A66 /* AppDelegate.swift in Sources */,
+				D8CBAE3B24668BE3008E8A66 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -263,7 +375,31 @@
 			target = D85D11472420AF2D00BEDBE1 /* GTCalendar */;
 			targetProxy = D85D11532420AF2D00BEDBE1 /* PBXContainerItemProxy */;
 		};
+		D8CBAE4E24668BF1008E8A66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D85D11472420AF2D00BEDBE1 /* GTCalendar */;
+			targetProxy = D8CBAE4D24668BF1008E8A66 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D8CBAE3E24668BE3008E8A66 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8CBAE3F24668BE3008E8A66 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D8CBAE4324668BE5008E8A66 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8CBAE4424668BE5008E8A66 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D85D115A2420AF2D00BEDBE1 /* Debug */ = {
@@ -475,6 +611,44 @@
 			};
 			name = Release;
 		};
+		D8CBAE4724668BE5008E8A66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QKEAV9NH26;
+				INFOPLIST_FILE = GTCalendarExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.4am.GTCalendarExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D8CBAE4824668BE5008E8A66 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QKEAV9NH26;
+				INFOPLIST_FILE = GTCalendarExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = jp.4am.GTCalendarExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -501,6 +675,15 @@
 			buildConfigurations = (
 				D85D11602420AF2D00BEDBE1 /* Debug */,
 				D85D11612420AF2D00BEDBE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8CBAE4924668BE5008E8A66 /* Build configuration list for PBXNativeTarget "GTCalendarExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8CBAE4724668BE5008E8A66 /* Debug */,
+				D8CBAE4824668BE5008E8A66 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
