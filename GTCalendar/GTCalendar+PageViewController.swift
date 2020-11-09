@@ -309,19 +309,29 @@ extension GTCalendar_PageViewController : UICollectionViewDelegate {
             break
         case .Period:
             if gtCalendar.periodSelectionTarget == .Start {
+                var newStartDate:Date? = nil
                 if gtCalendar.endDate != nil && gtCalendar.endDate! <= cell.date! {
-                    gtCalendar.startDate = gtCalendar.endDate
+                    newStartDate = gtCalendar.endDate
                 } else {
-                    gtCalendar.startDate = cell.date
+                    newStartDate = cell.date
                 }
+                if newStartDate != nil, delegate?.Calendar(gtCalendar, shouldSetStart: newStartDate!, endDate: gtCalendar.endDate, cell: cell) ?? true {
+                    gtCalendar.startDate = newStartDate
+                }
+                
                 if gtCalendar.config.periodSelectionAuto {
                     gtCalendar.periodSelectionTarget = .End
                 }
             } else if gtCalendar.periodSelectionTarget == .End {
+                var newEndDate:Date? = nil
                 if gtCalendar.startDate != nil && gtCalendar.startDate! >= cell.date! {
-                    gtCalendar.endDate = gtCalendar.startDate
+                    newEndDate = gtCalendar.startDate
                 } else {
-                    gtCalendar.endDate = cell.date
+                    newEndDate = cell.date
+                }
+                
+                if newEndDate != nil, delegate?.Calendar(gtCalendar, shouldSetEnd: newEndDate!, startDate: gtCalendar.startDate, cell: cell) ?? true {
+                    gtCalendar.endDate = newEndDate
                 }
             }
         }

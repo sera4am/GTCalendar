@@ -21,9 +21,13 @@ public extension GTCalendarDataSource {
 
 public protocol GTCalendarDelegate {
     func Calendar(_ calendar:GTCalendar, didSelect date:Date, cell:GTCalendar_CalendarViewCell)
+    func Calendar(_ calendar:GTCalendar, shouldSetStart date:Date, endDate:Date?, cell:GTCalendar_CalendarViewCell) -> Bool
+    func Calendar(_ calendar:GTCalendar, shouldSetEnd date:Date, startDate:Date?, cell:GTCalendar_CalendarViewCell) -> Bool
 }
 public extension GTCalendarDelegate {
     func Calendar(_ calendar:GTCalendar, didSelect date:Date, cell:GTCalendar_CalendarViewCell) {}
+    func Calendar(_ calendar:GTCalendar, shouldSetStart date:Date, endDate:Date?, cell:GTCalendar_CalendarViewCell) -> Bool { return true }
+    func Calendar(_ calendar:GTCalendar, shouldSetEnd date:Date, startDate:Date?, cell:GTCalendar_CalendarViewCell) -> Bool { return true }
 }
 
 @IBDesignable
