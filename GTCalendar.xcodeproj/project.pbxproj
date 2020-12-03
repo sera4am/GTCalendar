@@ -219,6 +219,8 @@
 			dependencies = (
 			);
 			name = GTCalendar;
+			packageProductDependencies = (
+			);
 			productName = GTCalendar;
 			productReference = D85D11482420AF2D00BEDBE1 /* GTCalendar.framework */;
 			productType = "com.apple.product-type.framework";
@@ -291,6 +293,8 @@
 				Base,
 			);
 			mainGroup = D85D113E2420AF2D00BEDBE1;
+			packageReferences = (
+			);
 			productRefGroup = D85D11492420AF2D00BEDBE1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
