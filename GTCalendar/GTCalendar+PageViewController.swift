@@ -315,7 +315,7 @@ extension GTCalendar_PageViewController : UICollectionViewDelegate {
                 } else {
                     newStartDate = cell.date
                 }
-                if newStartDate != nil, delegate?.Calendar(gtCalendar, shouldSetStart: newStartDate!, endDate: gtCalendar.endDate, cell: cell) ?? true {
+                if newStartDate != nil, gtCalendar.delegate?.Calendar(gtCalendar, shouldSetStart: newStartDate!, endDate: gtCalendar.endDate, cell: cell) ?? true {
                     gtCalendar.startDate = newStartDate
                 }
                 
@@ -330,7 +330,7 @@ extension GTCalendar_PageViewController : UICollectionViewDelegate {
                     newEndDate = cell.date
                 }
                 
-                if newEndDate != nil, delegate?.Calendar(gtCalendar, shouldSetEnd: newEndDate!, startDate: gtCalendar.startDate, cell: cell) ?? true {
+                if newEndDate != nil, gtCalendar.delegate?.Calendar(gtCalendar, shouldSetEnd: newEndDate!, startDate: gtCalendar.startDate, cell: cell) ?? true {
                     gtCalendar.endDate = newEndDate
                 }
             }
